@@ -1,0 +1,98 @@
+ENTERPRISE OPERATIONS MANUAL & EMPLOYEE HANDBOOK
+
+Document Reference: EOM-2026-V2
+Security Classification: Corporate Internal (Restricted)
+Distribution: All Entities, Global Workforces, and Affiliate Contractors
+
+SECTION 1: LEAVE AND ABSENCE MANAGEMENT POLICY (HR-LEAVE-01)
+
+1.1 Annual Paid Leave Allotment
+• Standard Entitlement: Full-time permanent employees accrue paid time off dynamically at a rate of 1.5 working days per completed calendar month of active service, culminating in 18 paid leaves per calendar year.
+• Tenure Scaling: Upon completing 36 consecutive months of verified service, the accrual rate scales up automatically to 2.0 working days per month, providing a maximum allocation of 24 paid leaves per annum.
+• Accrual Encumbrance: Paid leaves can only be taken after they are accrued. Employees entering their initial 90-day probationary window accumulate credit but cannot utilize planned leaves until full corporate confirmation is achieved.
+1.2 Carry-Forward Limits and Forfeiture Rules
+• Cap Limits: A maximum ceiling of 5 unused paid leaves can be carried over into the next financial year (commencing April 1st).
+• Automated Expiry: Any accumulated leave balance exceeding the 5-day ceiling is purged from the HR system automatically on March 31st at 11:59 PM. Financial encashment of expired leaves is strictly forbidden.
+• Sabbatical Exception: Employees executing pre-approved long-term research assignments or continuous study programs are exempt from standard carry-forward limits upon written sign-off from the Chief Human Resources Officer (CHRO).
+1.3 Planned Leave Notice Pipelines
+• Standard Requests: For planned leaves spanning 1 to 2 business days, employees must log a formal request in the HR Portal at least 3 days before the leave date.
+• Extended Blocks: Planned leaves exceeding 5 consecutive business days require a hard minimum notice window of 14 calendar days to establish proper operational redundancy.
+• Approval Hierarchy: Requests remain in a "Pending" status and cannot be actioned by the employee until digital confirmation is issued by the immediate reporting manager.
+1.4 Emergency, Unplanned, and Sick Leave Protocols
+• Immediate Escalation: Unforeseen leaves triggered by sudden medical events or domestic crises must be requested directly from the reporting manager via authorized real-time messaging applications (Slack, Microsoft Teams) or direct telephonic call.
+• Notification Window: The employee must notify their line manager regarding an emergency absence no later than 10:00 AM on the morning of the day of absence. Failure to notify within this window will classify the day as an "Unauthorised Absence" (Loss of Pay).
+• Medical Certification: Any unplanned sick leave extending beyond 2 consecutive working days requires the employee to upload a verified medical certificate from a registered medical practitioner within 48 hours of their physical return to duty.
+
+SECTION 2: WORK FROM HOME AND HYBRID OPERATIONAL CHARTER (IT-WFH-02)
+
+2.1 Allocation Metrics and Hybrid Boundaries
+• Monthly Allotment: Eligible corporate employees are permitted to execute their operational obligations from a remote domicile for up to 2 days per calendar month.
+• Non-Cumulative Clause: Remote work quotas are strictly fixed per month. Unused remote allocations do not stack, roll over, or convert into general paid time off.
+• Blackout Windows: Working from home is structurally restricted during mandatory quarterly project alignment sprints, global client audits, and annual company-wide general body assemblies.
+2.2 Approval Workflows and Technical Pre-requisites
+• Managerial Discretion: All remote work days are contingent upon explicit baseline metrics and must be approved by the reporting manager via the internal ERP tool.
+• Submission Deadlines: Standard requests must be logged into the workflow queue at least 24 hours prior to the requested remote shift.
+• Infrastructure Baseline: Remote workspaces must possess a stable, dedicated broadband pipeline with a minimum tested bandwidth of 50 Mbps download / 20 Mbps upload. Public spaces (e.g., open cafes, park benches) are strictly prohibited for processing corporate data.
+2.3 Operational Responsibilities and SLA Benchmarks
+• Core Availability: Remote employees must remain fully available across all standard enterprise channels (email, chat, video tools) during standard corporate working hours (9:00 AM to 6:00 PM).
+• Communication Latency: Direct messages via Slack/Teams must be acknowledged within an operational window of 30 minutes. Critical phone calls from line managers or executive leaders must be returned within 15 minutes.
+• Camera Obligation: Participation in virtual team syncs requires video infrastructure to be toggled on by default to maximize team collaboration and verify active presence.
+
+SECTION 3: TIME ATTENDANCE AND PUNCTUALITY PROTOCOLS (OPS-ATTD-03)
+
+3.1 Standard Attendance Metrics
+• Consistency Paradigm: To preserve delivery velocity, employees are expected to maintain regular and predictable attendance patterns across all assigned operational shifts.
+• Standard Shift Definitions: The core corporate operational window spans from 9:00 AM to 6:00 PM Monday through Friday, including a mandatory, non-negotiable 60-minute flexible window for midday lunch breaks.
+3.2 Punctuality and Late-Arrival Triggers
+• Pre-Shift Baseline: Employees should report to work before the scheduled working time to execute device handshakes, boot security environments, and clear local caches before formal shift deployment.
+• Grace Period Parameters: A daily grace window of 15 minutes is permitted to account for localized public transport anomalies. Arrival at a workstation after 9:15 AM is formally cataloged as a late-attendance event.
+• System Logging: Swipe-card entry logs or virtual single sign-on (SSO) timestamps serve as the definitive legal system of record for active clock-ins.
+3.3 Escalation Paths for Persistent Tardiness
+• Managerial Review: Repeated late attendance may require approval from the reporting manager to maintain active system access permissions.
+• HR Trigger Thresholds: Accumulating more than 3 late-attendance entries within a single calendar month triggers an automated notification to both the line manager and the HR Operations desk.
+• Disciplinary Progression: If tardiness continues into a second consecutive tracking month, the employee will be placed on a structured Performance Improvement Plan (PIP) focusing on operational compliance.
+
+SECTION 4: ENTERPRISE EXPENSE REIMBURSEMENT POLICY (FIN-EXP-04)
+
+4.1 Permissible Business Expenses
+• Core Mandate: Employees are fully authorized to claim eligible business expenses provided they are directly, wholly, and exclusively incurred during the execution of authorized company directives.
+• Valid Categories: Approved vectors encompass client entertainment (capped at ₹5,000 per event unless pre-cleared), long-distance commercial travel lodging, field operations transit, and approved technical training certifications.
+• Excluded Items: Commuting costs to the primary office, parking fines, alcohol balances on solo meals, and home office utility expansions without explicit VP authorization are completely non-reimbursable.
+4.2 Verification and Substantiation Protocols
+• Receipt Mandate: Employees must submit itemized expense receipts along with their digital expense claim ledger. Credit card transaction statements do not constitute valid proof of purchase.
+• Tax Invoice Requirement: Submissions must feature a legible tax invoice indicating the merchant's official identification number, an itemized breakdown of products/services rendered, and a clear "Paid" status indicator.
+• Monetary Thresholds: Single expense claims exceeding ₹10,000 require secondary digital sign-off from the specific Department Head before routing to accounts payable.
+4.3 Deadline Caps and Settlement Pipelines
+• The 30-Day Constraint: All valid expense claims should be submitted within 30 days of the expense date stamped on the merchant invoice.
+• Forfeiture Execution: Claims uploaded beyond the hard 30-day operational window are automatically rejected by the financial auditing script. The corresponding financial burden will be permanently borne by the employee.
+• Reimbursement Cycle: Validated claims are processed on the 20th of each month and disbursed alongside the employee's standard monthly payroll allocation.
+
+SECTION 5: BRING YOUR OWN DEVICE (BYOD) AND ENDPOINT SECURITY POLICY (IT-SEC-05)
+
+5.1 Scope and Device Registration
+• Authorized Assets: Employees executing tasks on personal hardware must formally register their endpoint configurations (laptops, smartphones, tablets) with the IT Security Desk before interacting with company data.
+• Enforced MDM Architecture: Registration is contingent upon installing the enterprise Mobile Device Management (MDM) profile. The MDM layer isolates corporate data from personal file systems.
+• Hardware Exclusions: Rooted Android systems, jailbroken iOS configurations, and operating systems lacking active vendor security patches (e.g., Windows 7/8, macOS versions older than 3 cycles) are denied access.
+5.2 Security Protocols and Password Mandates
+• VPN Requirement: Any access to internal company environments, staging databases, or cloud resource arrays must route exclusively through the authorized enterprise VPN pipeline.
+• Biometric Authentication: Registered mobile endpoints must employ a hard passkey alongside biometric validation (Fingerprint/Face Unlock). Numeric pins must span a minimum of 6 characters and cannot feature sequential repetition (e.g., 123456).
+• Remote Wipe Consent: By connecting a personal device to corporate networks, the employee provides explicit consent for the IT Security Desk to initiate a remote data wipe if the hardware is lost, stolen, or if the employee terminates their employment contract.
+
+SECTION 6: CORPORATE DATA PRIVACY AND NON-DISCLOSURE COMPLIANCE (LEGAL-DATA-06)
+
+6.1 Protection of Proprietary Data Assets
+• Definition of Terms: "Proprietary Data" encompasses source repositories, model weights, customer datasets, unannounced product blueprints, pricing matrices, and corporate strategy presentations.
+• Data Handling Constraints: Moving corporate data assets to personal cloud storage drives (e.g., personal Google Drive, Dropbox) or public sharing mediums is strictly prohibited and constitutes a material breach of contract.
+• Local Copy Exclusions: Employees are forbidden from downloading raw customer-identifiable information (PII) to local hard drives. All data operations must execute within sandbox cloud data environments.
+6.2 Visual Privacy and Physical Security Measures
+• Public Workspace Rule: When operating out of transient spaces (such as airport lounges or shared workspaces), employees must deploy a physical polarized privacy screen protector to block side-angle viewing.
+• Clean Desk Standard: Employees working within physical corporate facilities must lock their screens immediately upon stepping away from their workstations. Printed documents containing confidential metrics must be immediately shredded when no longer in active use.
+
+SECTION 7: WHISTLEBLOWER AND ETHICAL CONDUCT POLICY (HR-ETH-07)
+
+7.1 Reporting Mechanics for Malpractice
+• Objective Scope: This framework allows employees to report legitimate concerns regarding financial fraud, corporate espionage, systemic harassment, safety violations, or data privacy breaches without fear of professional reprisal.
+• Reporting Vector: Submissions must be routed through the secure internal email portal (ethics.compliance@company.com) or logged anonymously through the third-party intake web portal.
+7.2 Retaliation Protections and Investigation Lifecycles
+• Zero-Tolerance Anti-Retaliation: The company strictly prohibits any form of professional retribution, demotion, isolation, or negative review scaling directed at an employee who files a good-faith report.
+• Investigation Window: The Ethics Review Committee must initiate a formal diagnostic validation within 5 business days of record receipt. A definitive closure report must be archived within 45 calendar days, with findings shared directly with the Board of Directors.

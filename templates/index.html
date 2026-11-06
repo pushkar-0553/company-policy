@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Policy Assistant</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="brand">
+                <div class="logo-icon">📋</div>
+                <div>
+                    <h1>PolicyAI</h1>
+                    <span class="sub-title">Company Policy Assistant</span>
+                </div>
+            </div>
+            <div class="status-badge">
+                <span class="status-dot"></span>
+                <span>Active</span>
+            </div>
+        </header>
+
+        <!-- Chat Container -->
+        <main class="chat-container">
+            <div class="messages-area" id="messagesArea">
+                <!-- Welcome Message -->
+                <div class="message-bubble bot-message">
+                    <div class="avatar">🤖</div>
+                    <div class="message-content">
+                        <p><strong>Hello!</strong> I am your AI Company Policy Assistant.</p>
+                        <p>You can ask me anything regarding company policies, leave entitlements, notice periods, working hours, and workplace guidelines.</p>
+                        <div class="quick-prompts">
+                            <span class="quick-title">Quick questions you can try:</span>
+                            <div class="prompt-chips">
+                                <button class="chip" onclick="sendQuickPrompt(this)">What is the annual paid leave allotment?</button>
+                                <button class="chip" onclick="sendQuickPrompt(this)">What are the carry-forward leave limits?</button>
+                                <button class="chip" onclick="sendQuickPrompt(this)">How much notice is needed for planned leave?</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Typing indicator (hidden by default) -->
+            <div class="typing-indicator" id="typingIndicator">
+                <div class="avatar">🤖</div>
+                <div class="dots">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+
+            <!-- Input Box -->
+            <footer class="input-container">
+                <form id="chatForm" onsubmit="handleSend(event)">
+                    <input 
+                        type="text" 
+                        id="userInput" 
+                        placeholder="Type your policy question here..." 
+                        autocomplete="off" 
+                        required 
+                    />
+                    <button type="submit" id="sendBtn" title="Send message">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="22" y1="2" x2="11" y2="13"></line>
+                            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                        </svg>
+                    </button>
+                </form>
+            </footer>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/chat.js') }}"></script>
+</body>
+</html>
+
