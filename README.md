@@ -17,6 +17,12 @@ Built with **Flask**, **LangChain**, **FastEmbed**, **Groq LLM (`qwen/qwen3.8-27
 
 ---
 
+## 📖 Documentation
+
+For an in-depth architectural breakdown, data lifecycle diagrams, and a comprehensive developer guide explaining how this project was designed from scratch, refer to the [**Architecture and Developer Guide**](ARCHITECTURE_AND_DEVELOPMENT_GUIDE.md).
+
+---
+
 ## 🛠️ Project Structure
 
 ```text
