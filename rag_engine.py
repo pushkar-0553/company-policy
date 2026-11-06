@@ -1,22 +1,35 @@
 import os
 from dotenv import load_dotenv
 from langchain_core.documents import Document
+from langchain_core.embeddings import Embeddings
 from langchain_text_splitters import RecursiveCharacterTextSplitter
-from langchain_google_genai import ChatGoogleGenerativeAI, GoogleGenerativeAIEmbeddings
 from langchain_qdrant import QdrantVectorStore
 from qdrant_client import QdrantClient
+from fastembed import TextEmbedding
 
 # Load environment variables
 load_dotenv()
+
+# FastEmbed wrapper conforming to LangChain Embeddings interface
+class FastEmbedModel(Embeddings):
+    def __init__(self, model_name="BAAI/bge-small-en-v1.5"):
+        self.model = TextEmbedding(model_name=model_name)
+
+    def embed_documents(self, texts: list[str]) -> list[list[float]]:
+        return [list(map(float, vec)) for vec in self.model.embed(texts)]
+
+    def embed_query(self, text: str) -> list[float]:
+        return list(map(float, next(self.model.embed([text]))))
 
 # Cache instances
 _client = None
 _vector_store = None
 _retriever = None
 _llm = None
+_embeddings = None
 
-def get_api_key():
-    return os.getenv("GEMINI_API_KEY") or os.getenv("GOOGLE_API_KEY")
+def get_groq_api_key():
+    return os.getenv("GROQ_API_KEY")
 
 def get_qdrant_client():
     global _client
@@ -29,26 +42,34 @@ def get_qdrant_client():
     return _client
 
 def get_embeddings():
-    api_key = get_api_key()
-    if not api_key:
-        return None
-    return GoogleGenerativeAIEmbeddings(
-        model="models/text-embedding-004",
-        google_api_key=api_key
-    )
+    global _embeddings
+    if _embeddings is None:
+        # FastEmbed runs locally using ONNX, zero API key needed
+        _embeddings = FastEmbedModel(model_name="BAAI/bge-small-en-v1.5")
+    return _embeddings
 
 def get_llm():
     global _llm
     if _llm is None:
-        api_key = get_api_key()
-        if not api_key:
-            return None
-        model_name = os.getenv("GEMINI_MODEL", "gemini-1.5-flash")
-        _llm = ChatGoogleGenerativeAI(
-            model=model_name,
-            google_api_key=api_key,
-            temperature=0.2
-        )
+        groq_key = get_groq_api_key()
+        if groq_key:
+            from langchain_groq import ChatGroq
+            model_name = os.getenv("GROQ_MODEL", "llama-3.3-70b-versatile")
+            _llm = ChatGroq(
+                model=model_name,
+                groq_api_key=groq_key,
+                temperature=0.2
+            )
+        else:
+            # Fallback to Gemini if GEMINI_API_KEY is provided
+            gemini_key = os.getenv("GEMINI_API_KEY") or os.getenv("GOOGLE_API_KEY")
+            if gemini_key:
+                from langchain_google_genai import ChatGoogleGenerativeAI
+                _llm = ChatGoogleGenerativeAI(
+                    model="gemini-1.5-flash",
+                    google_api_key=gemini_key,
+                    temperature=0.2
+                )
     return _llm
 
 def init_vector_store():
@@ -61,9 +82,6 @@ def init_vector_store():
         return None
 
     embeddings = get_embeddings()
-    if not embeddings:
-        return None
-
     collection_name = os.getenv("QDRANT_COLLECTION", "company_policy")
 
     # Check if collection exists and has points
@@ -89,7 +107,7 @@ def init_vector_store():
         splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=50)
         chunks = splitter.split_documents(documents)
 
-        # Re-create/create collection and upload chunks
+        # Create/re-create collection in Qdrant with FastEmbed vectors (384-dim)
         _vector_store = QdrantVectorStore.from_documents(
             documents=chunks,
             embedding=embeddings,
@@ -111,10 +129,12 @@ def init_vector_store():
     return _retriever
 
 def answer_policy_question(question: str) -> dict:
-    api_key = get_api_key()
-    if not api_key:
+    groq_key = get_groq_api_key()
+    gemini_key = os.getenv("GEMINI_API_KEY") or os.getenv("GOOGLE_API_KEY")
+    
+    if not groq_key and not gemini_key:
         return {
-            "answer": "⚠️ Gemini API key not configured. Please set GEMINI_API_KEY in your .env or Render environment variables.",
+            "answer": "⚠️ Groq API key is not configured. Please set GROQ_API_KEY in your .env or Render environment variables (Get free key at: https://console.groq.com/keys).",
             "sources": []
         }
 
@@ -130,7 +150,7 @@ def answer_policy_question(question: str) -> dict:
         retriever = init_vector_store()
         if not retriever:
             return {
-                "answer": "⚠️ Unable to initialize vector database. Check your credentials.",
+                "answer": "⚠️ Unable to initialize Qdrant vector database. Please verify your credentials.",
                 "sources": []
             }
 
@@ -147,8 +167,8 @@ def answer_policy_question(question: str) -> dict:
         prompt = f"""You are an AI Company Policy Assistant.
 
 Answer the employee's question using ONLY the company policy information provided below.
-If the answer is not available in the policy, clearly say that the information is not available in the company policy.
-Keep your response clear, professional, and easy to read.
+If the answer is not available in the policy, clearly state that the information is not available in the company policy.
+Keep your answer clear, polite, and well-structured.
 
 Company Policy Context:
 {context}
@@ -159,6 +179,12 @@ Employee Question:
 Answer:"""
 
         llm = get_llm()
+        if not llm:
+            return {
+                "answer": "⚠️ Could not initialize the LLM. Please verify your GROQ_API_KEY.",
+                "sources": []
+            }
+
         response = llm.invoke(prompt)
         answer_text = response.content if hasattr(response, "content") else str(response)
 
@@ -173,4 +199,3 @@ Answer:"""
             "answer": f"Error processing question: {str(e)}",
             "sources": []
         }
-
